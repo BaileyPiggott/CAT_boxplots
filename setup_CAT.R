@@ -7,7 +7,6 @@ library(magrittr)
 library(grid)# load libraries
 
 ## data
-setwd("C:/Users/Bailey/Dropbox/SWEP/2015 CAT data") # take this out for Shiny App
 
 apsc_100 = read.csv("APSC 100 CAT Scores.csv")
 apsc_200 = read.csv("APSC 200 CAT Scores.csv") 
@@ -55,7 +54,6 @@ fix <- data.frame(c(NA,NA,NA,NA),c(1,2,3,4), c(NA,NA,NA,NA), c(NA,NA,NA,NA))
 colnames(fix) <- colnames(cat)
 
 # dummy data so that boxes plot with proper width
-
 dummy_4 <- data.frame(NA, 4,NA, 60) # fake data for 4th year 
 colnames(dummy_4) <- colnames(cat) 
 
