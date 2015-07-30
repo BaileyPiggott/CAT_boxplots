@@ -1,9 +1,8 @@
 
 # CAT boxplots
+source("setup_CAT.R") 
 
-source("setup_CAT.R") #RUN THIS EVERY TIME! ENGINEERING SUBJECT NAME IS CHANGED FOR THE DISCIPLINE BARPLOTS AND WILL BE OUT OF ORDER
-
-# choose what to plot
+# CHOOSE PROGRAM ----------------------------------------------------------
 df <- dram
 prog_name <- "Drama"
 dummy <- dummy_4 %>% mutate(Subject = Queens) #all 4th year data is drama
@@ -20,6 +19,7 @@ df <- apsc
 prog_name <- "Engineering"
 dummy <- dummy_4 %>% mutate(Subject = APSC) 
 
+# CREATE PLOT -------------------------------------------------------------
 
 #calculate sample sizes:
 n_1 <-  sum(with(df, year == 1 & CAT.Score > 1), na.rm = TRUE)     
