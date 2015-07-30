@@ -5,19 +5,19 @@ source("setup_CAT.R")
 # CHOOSE PROGRAM ----------------------------------------------------------
 df <- dram
 prog_name <- "Drama"
-dummy <- dummy_4 %>% mutate(Subject = Queens) #all 4th year data is drama
+dummy <- dummy_4 %>% mutate(Subject = "Queens") #all 4th year data is drama
 
 df <- psyc
 prog_name <- "Psychology"
-dummy <- dummy_4 %>% mutate(Subject = PSYC) 
+dummy <- fix
 
 df <- phys
 prog_name <- "Physics"
-dummy <- dummy_4 %>% mutate(Subject = PHYS) 
+dummy <- fix
 
 df <- apsc
 prog_name <- "Engineering"
-dummy <- dummy_4 %>% mutate(Subject = APSC) 
+dummy <-fix
 
 # CREATE PLOT -------------------------------------------------------------
 
@@ -32,7 +32,7 @@ n_4 <-  sum(with(df, year == 4 & CAT.Score > 1), na.rm = TRUE)
 year4 <- paste0("Fourth Year\nn = ", n_4, "   n = ", 0) #text string for xlabel
 
 # set up data frame and title
-df <- rbind(df, queens, fix) # combine with all queens data
+df <- rbind(df, queens, fix, dummy) # combine with all queens data
 graph_title <- paste0(prog_name,  " CAT Scores")
 
 ## plot description
