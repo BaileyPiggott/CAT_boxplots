@@ -13,9 +13,6 @@ n_eng_2 <-  sum(with(eng, year == 2 & CAT.Score > 1), na.rm = TRUE)
 n_eng_3 <-  sum(with(eng, year == 3 & CAT.Score > 1), na.rm = TRUE) 
 n_eng_4 <-  sum(with(eng, year == 4 & CAT.Score > 1), na.rm = TRUE) 
 
-# need null data for 3rd year to plot properly:
-fix <- data.frame(c(NA,NA,NA,NA),c(1,2,3,4), c(NA,NA,NA,NA), c(NA,NA,NA,NA))
-colnames(fix) <- colnames(cat)
 
 # CONSENTING FIRST AND SECOND YEARS ---------------------------------------
 #apsc_100 is all consenting eng first years
@@ -59,3 +56,7 @@ enph <- all_eng %>% filter(discipline == "ENPH-M-BSE")
 mthe <- all_eng %>% filter(discipline == "MTHE-M-BSE") 
 
 all_eng <- all_eng %>% mutate(discipline = "Z_ENG") #start with Z so all eng is right of discipline
+
+# need null data for 3rd year to plot properly:
+fix <- data.frame(c(NA,NA,NA,NA), c(NA,NA,NA,NA), c(NA,NA,NA,NA),c(1,2,3,4))
+colnames(fix) <- colnames(all_eng)
