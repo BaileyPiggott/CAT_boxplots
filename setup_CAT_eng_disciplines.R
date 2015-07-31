@@ -3,17 +3,6 @@
 source("setup_CAT.R")
 
 
-# ALL ENGINEERING ---------------------------------------------------------
-
-eng <- apsc %>% mutate(Subject = "Z_APSC")# subject starts with Z so it will be on the right of the disciplines
-
-# all engineering sample sizes:
-n_eng_1 <-  sum(with(eng, year == 1 & CAT.Score > 1), na.rm = TRUE)  
-n_eng_2 <-  sum(with(eng, year == 2 & CAT.Score > 1), na.rm = TRUE) 
-n_eng_3 <-  sum(with(eng, year == 3 & CAT.Score > 1), na.rm = TRUE) 
-n_eng_4 <-  sum(with(eng, year == 4 & CAT.Score > 1), na.rm = TRUE) 
-
-
 # CONSENTING FIRST AND SECOND YEARS ---------------------------------------
 #apsc_100 is all consenting eng first years
 #apsc_200 is all consenting eng second years
@@ -55,7 +44,17 @@ enph <- all_eng %>% filter(discipline == "ENPH-M-BSE")
 
 mthe <- all_eng %>% filter(discipline == "MTHE-M-BSE") 
 
+
+
+# ALL ENGINEERING ---------------------------------------------------------
+
 all_eng <- all_eng %>% mutate(discipline = "Z_ENG") #start with Z so all eng is right of discipline
+
+# all engineering sample sizes:
+n_eng_1 <-  sum(with(all_eng, year == 1 & score > 1), na.rm = TRUE)  
+n_eng_2 <-  sum(with(all_eng, year == 2 & score > 1), na.rm = TRUE) 
+n_eng_3 <-  sum(with(all_eng, year == 3 & score > 1), na.rm = TRUE) 
+n_eng_4 <-  sum(with(all_eng, year == 4 & score > 1), na.rm = TRUE) 
 
 # need null data for 3rd year to plot properly:
 fix <- data.frame(c(NA,NA,NA,NA), c(NA,NA,NA,NA), c(NA,NA,NA,NA),c(1,2,3,4))
